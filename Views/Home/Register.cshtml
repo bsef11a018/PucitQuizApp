@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+
+
+
+<h2 align="center" class="bg-info">Register</h2>
+<form id="f" class="form-horizontal" role="form" method="post" action="/Home/RegisterUser" onsubmit="return f2()">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label"><strong>User Name : </strong></label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="uname" name="uname" placeholder="UserName">
+      <input type="button" class="btn btn-warning" id="check" value="Check Availability" onclick="f1()" />
+        <span id="msg" class="bg-primary"></></span>
+
+    </div>
+  </div>
+     <div class="form-group">
+    <label for="name" class="col-sm-2 control-label"><strong> Full Name : </strong></label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="name" name="name" placeholder="Full Name">
+
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label"><strong>Password</strong></label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="upass" name="upass" placeholder="Password">
+    </div>
+  </div>
+     <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label"><strong>Retype Password</strong></label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="retype" placeholder="Password" onblur="f2()">
+    </div>
+  </div>
+  <br><br>
+  <div align="center" class="alert alert-danger" id="error"></div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button  type="submit" class="btn btn-primary"  >Register</button>
+     
+    </div>
+  </div>
+   
+</form>
+
+
+
+        <script>
+            function f1() {
+                
+                $.getJSON('/Home/Available?uname='+$('#uname').val(), function (x) {
+                    if (x) {
+                        $('#msg').text("Available");
+                    }
+                    else
+                    {
+                        $('#msg').text("Already Taken");
+                    }
+
+                });
+            }
+            $('#sub')
+            function f2()
+            {
+                if ($('#uname').val().length == 0)
+                {
+                    $('#error').text("Oh Snap! You Must enter a username");
+                    return false;
+                }
+                if ($('#name').val().length == 0) {
+                    $('#error').text("Oh Snap! You Must enter your name");
+                    return false;
+                }
+                if ($('#upass').val() != $('#retype').val()) {
+                    $('#error').text("Oh Snap! Your Passwords do not match");
+                    return false;
+
+                }
+                    $('#error').text("");
+                    return true;
+                
+            }
+</script>
+    

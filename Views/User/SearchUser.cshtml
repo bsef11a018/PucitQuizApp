@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "SearchUser";
+     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="bg-info" align="center">SearchUser</h2>
+
+<form  class="form-horizontal" role="form" method="post" action="/User/SearchResults">
+       <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <input type="text" class="form-control"  name="uname" placeholder="Enter User Name">
+      <button type="submit" class="btn btn-primary">Search</button>
+     
+    </div>
+  </div>
+</form>

@@ -1,0 +1,45 @@
+﻿@model lab9_bootstrap.Models.Result
+@{
+    ViewBag.Title = "ShowResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 align="center" class="bg-success">Result</h2>
+<table class="table table-bordered">
+     <tr class="active">
+        <td class="active"><h3>Quiz Title : </h3></td>
+        <td class="success"><h3>@Model.Quiz_title</h3></td>
+
+    </tr>
+    <tr class="active">
+        <td class="active"><h3>Total : </h3></td>
+        <td class="success"><h3>@Model.total_questions</h3></td>
+
+    </tr>
+    <tr class="active">
+        <td class="active"><h3>Correct : </h3></td>
+        <td class="success"><h3>@Model.correct</h3></td>
+
+    </tr>
+    <tr class="active">
+        <td class="active"><h3>Score : </h3></td>
+        <td class="success"><h3>@Model.score<h3></td>
+
+    </tr>
+</table>
+<div align="center">
+    <form id="f1" action="~/Home/FacebookLogin" method="post">
+    <input type="submit" class="btn btn-info" value="Post To Facebook" />
+        </form>
+    </div>
+
+<script>
+    $('#f1').submit(function () {
+        @{
+            Session["title"] = Model.Quiz_title;
+            Session["total"] = Model.total_questions;
+            Session["correct"] = Model.correct;
+            Session["score"] = Model.score;
+         }
+    });
+    </script>

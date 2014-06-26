@@ -1,0 +1,30 @@
+﻿@model lab9_bootstrap.Models.UserProfile
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="bg-info" align="center">Profile</h2>
+@using (Html.BeginForm("ProfileSettings", "User", FormMethod.Post, new { Class = "form-horizontal", Role="form"}))
+{
+    <br>
+    <div align="center">
+        <img align="center" src="~/me.png"  class="img-circle" height="100" width="100">
+    </div><br>
+    <div align="center" class="bg-danger" id="uname"><h3>@Model.name</h3></div>
+    <div class="col-sm-2"><strong>@Html.LabelFor(m => m.name)</strong></div>
+    <div class="col-sm-8">
+        @Html.TextBoxFor(m => m.name, new { Class = "form-control", Id="nm", Name="name" });<br>
+    </div><br><br><br>
+    <div align="center" class="bg-danger" ><h3 align="center">Quizes  : @Model.numquizez</h3></div>
+    <div align="center" class="bg-danger" ><h3>Average : @Model.avg</h3></div>
+    <input type="hidden" value="@Model.username" name="uname" /><br>
+    <div align="center">
+        <input  type="submit" class="btn btn-danger" value="Update" />
+    </div>
+    
+    
+}
+<script>
+    $('#nm').val(@Model.name);
+    </script>

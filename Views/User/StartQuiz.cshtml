@@ -1,0 +1,58 @@
+﻿@model lab9_bootstrap.Models.Question
+@{
+    ViewBag.Title = "StartQuiz";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Quiz</h2>
+<div align="center" class="panel panel-danger" >
+    <div class="panel-heading">
+    <h3 class="panel-title" id="title">@Model.Question1</h3>
+
+  </div>
+  <div class="panel-body" >
+    <form action="/User/StartQuiz">
+        <table>
+            <tr>
+                <td>
+                    <input type="radio" name="op" value="A" /></td>
+                <td>
+                    <span align="left" id="A" class="bg-danger">@Model.OptionA</span>
+                    
+                </td>
+             </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="op"value="B"/></td>
+                <td>
+                    <span align="left" id="B" class="bg-danger">@Model.OptionB</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="op" value="C"/></td>
+                <td>
+                    <span align="left" id="C" class="bg-danger">@Model.OptionC</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="op" value="D"/>
+
+                </td>
+
+                 <td>
+                    <span align="left" id="D" class="bg-danger">@Model.OptionD</span><br><br><br><br><br>
+                </td>
+            </tr>
+            </table>
+      <div >
+        <input type="submit" class="btn btn-success" value="Next" id="next">
+      </div>
+        </form>
+         
+   </div>
+</div>
+<script>
+    $('.bg-danger').css('font-size',20);
+ </script>

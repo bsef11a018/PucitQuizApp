@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 align="center" class="bg-info">Welcome @ViewBag.x</h2><br><br><br><br>
+<div align="center" class="panel panel-danger">
+    <div class="panel-heading">
+    <h3 class="panel-title">User Panel</h3>
+  </div>
+  <div class="panel-body">
+    
+      <div class="btn-group">
+  <input id="dd" name="dd" type="button" class="btn btn-danger" value="Choose Category" />
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <ul id="list"  class="dropdown-menu" role="menu">
+    <li ><a id="l1" >IT</a></li>
+    <li ><a id="l2">General Knowledge</a></li>
+    <li ><a id="l3">Islamic</a></li>
+    <li ><a id="l4" >IQ</a></li>
+  </ul>
+</div>
+      <button type="button" class="btn btn-success " id="start">Start Quiz</button><br><br>
+      <div  class="btn-group-vertical">
+        <a href="/User/AddQuiz" type="button" class="btn btn-primary ">Add A Quiz</a>
+        <a type="button" class="btn btn-warning " href="/User/SearchUSer">Search A User</a>
+          <button type="button" class="btn btn-warning ">View All Quizes</button>
+          <a type="button" class="btn btn-primary " href="/User/Profile?uname="+ @Session["uname"]>Profile Settings</a>
+          </div>
+  </div>
+  <div class="panel-footer">Choose one of the above options</div>
+</div>
+<script>
+    $('#l1').click(function () { $('#dd').val("IT");});
+    $('#l2').click(function () { $('#dd').val("General Knowledge"); });
+    $('#l3').click(function () { $('#dd').val("Islamic"); });
+    $('#l4').click(function () { $('#dd').val("IQ"); });
+    $('#start').click(function () {
+        window.location.replace("/User/StartQuiz?category="+$('#dd').val());
+    });
+    </script>
+       

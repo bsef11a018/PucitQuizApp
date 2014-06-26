@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 align="center" class="bg-info">Welcome @ViewBag.x</h2><br><br><br><br>
+<div align="center" class="panel panel-danger">
+     <div class="panel-heading">
+    <h3 class="panel-title">Admin Panel</h3>
+  </div>
+  <div class="panel-body">
+    
+      <a type="button" class="btn btn-success btn-lg btn-block" href="/Admin/AddQuiz">Add New Quiz</a>
+<a type="button" class="btn btn-primary btn-lg btn-block" href="/Admin/SearchQuiz">Search A Quiz</a>
+<a type="button" class="btn btn-danger btn-lg btn-block" href="/Admin/SearchQuiz">Delete A Quiz</a>
+<a type="button" class="btn btn-warning btn-lg btn-block" href="/Admin/SearchUser1">Search A User</a>
+  </div>
+  <div class="panel-footer">Choose one of the above options</div>
+</div>
+

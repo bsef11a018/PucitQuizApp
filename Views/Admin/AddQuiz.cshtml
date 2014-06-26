@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "AddQuiz";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddQuiz</h2>
+<div align="center" class="panel panel-danger">
+    <div class="panel-heading">
+    <h3 class="panel-title">Upload Quiz</h3>
+  </div>
+  <div class="panel-body">
+    
+      <div class="btn-group">
+  <input id="dd" name="dd" type="button" class="btn btn-danger" value="Choose Category" />
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <ul id="list"  class="dropdown-menu" role="menu">
+    <li ><a id="l1" >IT</a></li>
+    <li ><a id="l2">General Knowledge</a></li>
+    <li ><a id="l3">Islamic</a></li>
+    <li ><a id="l4" >IQ</a></li>
+  </ul>
+          </div>
+      <br><br>
+      <form method="post" action="/Admin/AddQuizFromFile" enctype="multipart/form-data">
+          <input type="file" class="btn btn-primary" name="file"><br>
+          <button type="submit" class="btn btn-primary ">Upload Quiz from File</button>
+          <input type="hidden" id="h1" name="h1"/>
+          </form><br><br><br>
+      <div align="center" class="bg-info"><strong>@ViewBag.x</strong></div>
+
+         
+      </div>
+</div>
+<script>
+    $('#l1').click(function () { $('#dd').val("IT"); $('#h1').val("IT"); });
+    $('#l2').click(function () { $('#dd').val("General Knowledge"); $('#h1').val("General Knowledge"); });
+    $('#l3').click(function () { $('#dd').val("Islamic"); $('#h1').val("Islamic"); });
+    $('#l4').click(function () { $('#dd').val("IQ"); $('#dd').val("IQ"); });
+    </script>
+    
+       

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <link href="~/bootstrap.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="~/jquery.fancybox.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="~/jquery.fancybox.pack.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/bootstrap.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
+  <div class="container">
+      <img class="navbar-brand" src="~/pucit.jpg" height="150" width="120">
+      <a class="navbar-brand" href="#"><b>PUCIT QUIZ CONTEST</b></a>
+      @Html.ActionLink("Home", "/Home", "Home", new {Class="btn btn-default navbar-btn" });
+      <a class="btn btn-default navbar-btn" href="/Home/About" >About</a>  
+      @Html.ActionLink("Contact", "/Home", "Contact", new {Class="btn btn-default navbar-btn" });
+  </div>
+</nav><br><br><br><br><br><br><br><br>
+    @RenderBody()
+    <br><br><br><br><br><br><br><br><br><br>
+  <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+  <div class="container">
+      <a class="navbar-brand" href="#">PUCIT QUIZ CONTEST , <small>All Rights Reserved</small></a>
+      <div class="pull-right">
+        <a class="navbar-brand" href="#"><small>Developed by Ahmed ALi,2014</small></a>
+          </div>
+     
+      
+  </div>
+</nav>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "SearchQuiz";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="bg-info" align="center">Search Quiz</h2>
+
+<form  class="form-horizontal" role="form" method="post" action="/Admin/SearchQuizInDb">
+       <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <input type="text" class="form-control"  name="title" placeholder="Enter Quiz Title"><br><br><br>
+      <button type="submit" class="btn btn-primary">Search</button>
+     
+    </div>
+  </div>
+</form>

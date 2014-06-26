@@ -1,0 +1,22 @@
+﻿@model lab9_bootstrap.Models.Quiz
+@{
+    ViewBag.Title = "SearchQuizInDb";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SearchQuizInDb</h2>
+<h2 class="bg-info" align="center">Search Results</h2>
+  <br>
+    <div align="center">
+        <img align="center" src="~/me.png"  class="img-circle" height="100" width="100">
+    </div><br>
+    <div align="center" class="bg-danger" ><h3 id="title">@Model.title</h3></div>
+     <div align="center" class="bg-danger" id="cat"><h3>Category : @Model.category</h3></div>
+    <br><br><br>
+  
+    <div align="center">
+        <a  type="button" id="a1" class="btn btn-danger"  >Delete</a>
+    </div>
+<script>
+    $('#a1').attr('href', '/Admin/DeleteQuiz?title=' + $('#title').text());
+    </script>

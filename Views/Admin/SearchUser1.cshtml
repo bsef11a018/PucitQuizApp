@@ -1,0 +1,45 @@
+﻿@model lab9_bootstrap.Models.UserProfile
+@{
+    ViewBag.Title = "SearchUser1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 align="center" class="bg-info">SearchUser</h2>
+<div class="col-sm-8">
+<input type="text" class="form-control" id="uname" placeholder="UserName">
+    </div>
+<input align="center" id="search"  type="button" class="btn btn-danger" value="Search User" />
+<table class="table">
+  <tr align="center">
+  <td id="un" class="active"> </td>
+   </tr>
+    <tr align="center">
+  <td id="nm" class="success"> </td>
+        </tr>
+    <tr align="center">
+  <td id="numq" class="warning"> </td>
+        </tr>
+    <tr align="center">
+  <td id="avg" class="danger"> </td>
+</tr>
+    <br><br>
+      <tr align="center">
+  <td ><a id="a1" class="btn btn-danger" >Delete User</a> </td>
+</tr>
+</table>
+<script>
+    $('#search').click(function ()
+    {
+       
+        alert("/Admin/SearchUser?uname=" + $('#uname').val());
+        $.getJSON("/Admin/SearchUser?uname=" + $('#uname').val(), function (x) {
+           
+            alert(x);
+            $('#un').text(x.username);
+            $('#a1').attr('href','/Admin/DeleteUser?uname='+x.username);
+            $('#nm').text(x.name);
+            $('#numq').text(x.numquizez);
+            $('#avg').text(x.avg);
+        });
+    });
+    </script>

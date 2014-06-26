@@ -1,0 +1,24 @@
+﻿@model lab9_bootstrap.Models.UserProfile
+@{
+    ViewBag.Title = "SearchResults";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="bg-info" align="center">SearchResults</h2>
+  <br>
+    <div align="center">
+        <img align="center" src="~/me.png"  class="img-circle" height="100" width="100">
+    </div><br>
+    <div align="center" class="bg-danger" id="uname"><h3>@Model.username</h3></div>
+     <div align="center" class="bg-danger" id="uname"><h3>@Model.name</h3></div>
+    <br><br><br>
+    <div align="center" class="bg-danger" ><h3 align="center">Quizes  : @Model.numquizez</h3></div>
+    <div align="center" class="bg-danger" ><h3>Average : @Model.avg</h3></div>
+    <input type="hidden" value="@Model.username" name="uname" /><br>
+    <div align="center">
+        <a  type="button" class="btn btn-danger" href="/User/Index"  >Go Back</a>
+    </div>
+    
+<script>
+    $('#nm').val(@Model.name);
+    </script>
