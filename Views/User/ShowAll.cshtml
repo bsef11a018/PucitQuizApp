@@ -1,0 +1,23 @@
+﻿@model List<lab9_bootstrap.Models.Quiz>
+@{
+    ViewBag.Title = "ShowAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered">
+     <tr class="active">
+        <td class="active"><h3>Quiz Title </h3></td>
+        <td class="success"><h3>Category</h3></td>
+
+    </tr>
+    @{
+        for(int i=0;i<Model.Count;i++)
+        {
+            <tr class="active">
+        <td class="active"><h3> @Model.ElementAt(i).title </h3></td>
+        <td class="success"><h3>@Model.ElementAt(i).category</h3></td>
+
+    </tr>
+        }
+     }
+ </table>
